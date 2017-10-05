@@ -6,6 +6,7 @@ import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import eCae.DreamLaptopBackEnd.dao.SupplierDao;
+import eCae.DreamLaptopBackEnd.model.Category;
 import eCae.DreamLaptopBackEnd.model.Supplier;
 
 public class SupplierDaoImpl implements SupplierDao {
@@ -36,6 +37,23 @@ public class SupplierDaoImpl implements SupplierDao {
   list = (ArrayList<Supplier>) ss.createQuery("form Supplier").list();
   t.commit();
 		return null;
+	}
+	@Override
+	public boolean delSupplier(int id){
+		Session s = sf.openSession();
+		Transaction t = s.beginTransaction();
+		Supplier su=s.get(Supplier.class, id);
+		s.delete(su);
+		t.commit();
+		return true;
+	}
+	@Override
+	public Supplier getSupplierById(int id){
+		Session s = sf.openSession();
+		Transaction t = s.beginTransaction();
+		Supplier su=s.get(Supplier.class, id);
+		t.commit();
+		return su;
 	}
 
 }

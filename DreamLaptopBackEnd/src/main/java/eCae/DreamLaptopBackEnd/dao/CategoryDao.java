@@ -5,8 +5,12 @@ import eCae.DreamLaptopBackEnd.model.Category;
 
 public interface CategoryDao {
 	
-boolean addCategory(Category category);
-
-ArrayList<Category>gatAllCategory();
+		boolean addCategory(Category category);
+		
+		ArrayList<Category>gatAllCategory();
+		
+		boolean delCategory(int id);
+		
+		Category getCategoryById(int id);
 
 }

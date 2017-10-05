@@ -19,7 +19,7 @@ import eCae.DreamLaptopBackEnd.daoImpl.SupplierDaoImpl;
 import eCae.DreamLaptopBackEnd.daoImpl.UserDaoImpl;
 
 @Configuration
-@ComponentScan("eCae.NisrisBackEnd")
+@ComponentScan("eCae.DreamLaptopBackEnd")
 public class hibernatConfig {
 	@Autowired
 	@Bean(name="dataSource")
@@ -45,7 +45,7 @@ public class hibernatConfig {
 	public SessionFactory getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
-		sessionBuilder.scanPackages("eCae.NisrisBackEnd");
+		sessionBuilder.scanPackages("eCae.DreamLaptopBackEnd");
 		return sessionBuilder.buildSessionFactory();
 	}
 

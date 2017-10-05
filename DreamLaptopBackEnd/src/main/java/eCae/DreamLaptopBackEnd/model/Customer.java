@@ -21,6 +21,20 @@ public class Customer
 	private String name;
 	private String phno;
 	public String address;
+	private String role;
+	private String enabled;
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
+	}
 	public String getEmail() {
 		return email;
 	}

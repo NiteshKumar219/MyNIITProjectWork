@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>eCae</groupId>
-  <artifactId>NisrisBackEnd</artifactId>
+  <artifactId>DreamLaptopBackEnd</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>NisrisBackEnd</name>
+  <name>DreamLaptopBackEnd</name>
   <url>http://maven.apache.org</url>
 
   <properties>

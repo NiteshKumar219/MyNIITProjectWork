@@ -26,7 +26,7 @@ public class CategoryDaoImpl implements CategoryDao  {
 	public boolean addCategory(Category category){
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
-		s.save(category);
+		s.saveOrUpdate(category);
 		t.commit();
 		return true;
 	}
@@ -39,6 +39,23 @@ public class CategoryDaoImpl implements CategoryDao  {
 			list = (ArrayList<Category>) s.createQuery("from Category").list();
 			t.commit();
 			return list;
+		}
+		@Override
+		public boolean delCategory(int id){
+			Session s = sf.openSession();
+			Transaction t = s.beginTransaction();
+			Category c=s.get(Category.class, id);
+			s.delete(c);
+			t.commit();
+			return true;
+		}
+		@Override
+		public Category getCategoryById(int id){
+			Session s = sf.openSession();
+			Transaction t = s.beginTransaction();
+			Category c=s.get(Category.class, id);
+			t.commit();
+			return c;
 		}
 	}
 

@@ -39,5 +39,22 @@ public ProductDaoImpl(SessionFactory sf){
 		t.commit();
 		return null;
 	}
+	@Override
+	public boolean delproProduct(int id){
+		Session s = sf.openSession();
+		Transaction t = s.beginTransaction();
+		Product p=s.get(Product.class, id);
+		s.delete(p);
+		t.commit();
+		return true;
+	}
+	@Override
+	public Product getProductById(int id){
+		Session s = sf.openSession();
+		Transaction t = s.beginTransaction();
+		Product p=s.get(Product.class, id);
+		t.commit();
+		return p;
+	}
 
 }
