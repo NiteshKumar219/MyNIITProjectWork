@@ -46,5 +46,10 @@ public class HomeController {
 		else
 			return "register";
 	}
+	@RequestMapping("/login")
+	public String gologin(){
+		return "login";
+	}
+	}
 	
-}
+

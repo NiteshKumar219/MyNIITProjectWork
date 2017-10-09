@@ -16,17 +16,24 @@ http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security.xsd">
 
 <security:http auto-config="true">
+<security:intercept-url pattern="/category" access="hasRole('ROLE_ADMIN')" />
 <security:form-login login-page="/login" default-target-url="/" 
-	 login-processing-url="/perform_login" authentication-failure-url="/login"
+	 login-processing-url="/j_security_check" authentication-failure-url="/login"
 	authentication-success-forward-url="/login_success" />
 <security:csrf disabled="true" />
 </security:http>
-
+<beans:bean id="dataSource"
+         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<beans:property name="driverClassName" value="org.h2.Driver" />
+	<beans:property name="url" value="jdbc:h2:tcp://localhost/~/test" />
+	<beans:property name="username" value="sa" />
+	<beans:property name="password" value="" />
+</beans:bean>
 <security:authentication-manager>
 <security:authentication-provider>
 	<security:jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="select username,password,enabled from UserDetail where username=?"
-				authorities-by-username-query="select username, role from UserDetail where username =?" />
+				users-by-username-query="select name,password,enabled from Customer where name=?"
+				authorities-by-username-query="select name, role from Customer where name =?" />
 </security:authentication-provider>
 </security:authentication-manager>
 </beans:beans>
