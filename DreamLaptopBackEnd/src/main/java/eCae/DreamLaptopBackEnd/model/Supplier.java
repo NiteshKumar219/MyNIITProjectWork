@@ -22,5 +22,4 @@ public void setSname(String sname) {
 	this.sname = sname;
 }
 
-
 }

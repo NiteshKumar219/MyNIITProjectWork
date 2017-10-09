@@ -22,6 +22,8 @@ public class UserDaoImpl implements UserDao {
 	public boolean addCustomer(Customer c){
 		Session s = sf.openSession();
 		Transaction t = s.beginTransaction();
+		c.setEnabled(true);
+		c.setRole("ROLE_ADMIN");
 		s.save(c);
 		t.commit();
 		return true;
